@@ -1,0 +1,634 @@
+\documentclass[12pt,a4paper]{article}
+
+% Подключаем пакеты
+\usepackage[utf8]{inputenc} % Кодировка текста
+\usepackage[T2A]{fontenc} % Поддержка кириллицы
+\usepackage[russian,english]{babel} % Многоязычная поддержка
+\usepackage{amsmath,amsfonts,amssymb} % Математические символы и шрифты
+\usepackage{geometry} % Настройка полей страницы
+\usepackage{polynom} %деление многочленов столбиком
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+
+% Настройка полей страницы
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+
+\title{Рассчетка по теории функций комплексного переменного}
+\author{Крылов Савелий Игоревич ИБ-21}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\renewcommand{\contentsname}{Оглавление}
+\tableofcontents
+\newpage
+
+% Введение
+\section*{Введение}
+Я делал задание на бумаге -- бумага потерялась, решил избавиться от проблемы(бумаги).
+
+% Глава 1
+\section{Комплексные числа и действия с ними}
+\subsection*{1.10}
+\[
+\text{Re} \left( \frac{1 - i}{2 - i} \right) - \text{Im} \left( \frac{2 + i}{1 + 3i} \right)
+\]
+\subsubsection*{Решение}
+\[
+\text{Re} \left( \frac{1-i}{2-i} \right) - \text{Im} \left( \frac{2+i}{1+3i} \right) = \text{Re} \left( \frac{(1-i)(2+i)}{5} \right) - \text{Im} \left( \frac{(2+i)(1-3i)}{10} \right) =
+\]
+
+\[
+= \text{Re} \left( \frac{2-i+1}{5} \right) - \text{Im} \left( \frac{2-2i+3)}{10} \right) = \frac{3}{5}+\frac{1}{5}i
+\]
+\subsection*{1.20}
+\[
+z^2 + \overline{z} = 2\operatorname{Re} \left( \frac{1 + i}{1 - i} \right)
+\]
+\subsubsection*{Решение}
+\[
+z^2 + \overline{z} = 2 \operatorname{Re} \left( \frac{1+i}{1-i} \right)
+\]
+\[
+z = x + iy
+\]
+\[
+x^2 + 2xyi + iy^2 - y^2 + x - yi = 2 \operatorname{Re} \left( \frac{1+2i-1}{2} \right)
+\]
+\[
+x^2 - y^2 + x + i(2x-1)y = 0
+\]
+
+\[
+\left\{
+\begin{aligned}
+x^2 - y^2 + x &= 0, \\
+(2x - 1) y &= 0.
+\end{aligned}
+\right.
+\]
+
+Находим решения для \( y = 0 \):
+\begin{align*}
+x^2 + x &= 0 \\
+(x + 1)x &= 0 \\
+x &= 0 \quad \text{or} \quad x = -1.
+\end{align*}
+
+Для случая \( (2x-1) = 0 \) (считая \( y \neq 0 \)):
+\begin{align*}
+2x - 1 &= 0, \\
+x &= \frac{1}{2}.
+\end{align*}
+Подставляем \( x = \frac{1}{2} \) в первое равенство:
+\begin{align*}
+\left(\frac{1}{2}\right)^2 - y^2 + \frac{1}{2} &= 0, \\
+\frac{1}{4} - y^2 + \frac{1}{2} &= 0, \\
+y^2 &= \frac{3}{4}, \\
+y &= \pm \frac{\sqrt{3}}{2}.
+\end{align*}
+
+Решения:
+\begin{itemize}
+\item \((\frac{1}{2}, \frac{\sqrt{3}}{2})\),
+\item \((\frac{1}{2}, -\frac{\sqrt{3}}{2})\),
+\item \((0, 0)\),
+\item \((-1, 0)\).
+\end{itemize}
+\subsection*{1.30}
+\[
+\sqrt{-3 - 4i}
+\]
+\subsubsection*{Решение}
+\[
+\sqrt{-3-4i}
+\]
+\[
+w = -3 - 4i
+\]
+\[
+|w| = \sqrt{(-3)^2 + (-4)^2} = 5
+\]
+\[
+w = 5(\cos\phi + i\sin\phi)
+\]
+\[
+\cos\phi = -\frac{3}{5}, \quad \sin\phi = -\frac{4}{5}
+\]
+
+\[
+z=\sqrt{w} = \sqrt{5} \left( \cos \left( \frac{\phi + 2k\pi}{2} \right) + i\sin \left( \frac{\phi + 2k\pi}{2} \right) \right), \quad k = 0, 1
+\]
+\[
+z_1 = \sqrt{5} \left( \cos \left( \frac{\phi}{2} \right) + i\sin \left( \frac{\phi}{2} \right) \right)
+\]
+\[
+z_2=-z_1
+\]
+\[
+2\cos^{2} \left( \frac{\phi}{2} \right) - 1 = \cos\phi = -\frac{3}{5}
+\]
+\[
+2\cos^2 \left( \frac{\phi}{2} \right)  = \frac{2}{5}
+\]
+\[
+\cos \left( \frac{\phi}{2} \right) = \sqrt{\frac{1}{5}}
+\]
+\[
+\sin \left( \frac{\phi}{2} \right) = \sqrt{1 - \cos^2 \left( \frac{\phi}{2} \right)} = -\sqrt{\frac{4}{5}}
+\]
+\[
+z_1 = \sqrt{5} \left( \frac{1}{\sqrt{5}} - i\frac{2}{\sqrt{5}} \right) = 1 - 2i
+\]
+\[
+z_2 = -\sqrt{5} \left( \frac{1}{\sqrt{5}} - i\frac{2}{\sqrt{5}} \right) = -1 + 2i
+\]
+\subsection*{1.40}
+\[
+ z^2+(-1+6i)z-6i=0
+\]
+\subsubsection*{Решение}
+\[
+z = 1 + 0i \text{ -- решение(очевидно понимается подстановкой)}
+\]
+\begin{tabular}{r|l}
+
+$z^2 + (1 + 6i)^2 - 6i$ & $z-1$ \\
+\cline{2-2}
+$z^2-z$~~~~~~~~~~~~~~~~~& $z+6i $ \\
+\cline{1-1}
+$6iz - 6i$ & \\
+$6iz - 6i$ & \\
+\cline{1-1}
+0&\\
+\end{tabular}
+\[
+(z-1)(z + 6i) = 0
+\]
+\[
+z = 1 \text{ или } z = -6i
+\]
+
+
+\subsection*{1.50}
+
+ Представить комплексное число $\sqrt{3}+i$ в тригонометрической и показательных формах
+
+\subsubsection*{Решение}
+\[
+z = \sqrt{3} + i
+\]
+\[
+|z| = \sqrt{\sqrt{3}^2 + 1^2} = 2
+\]
+\[
+\text{Re} > 0, \quad \text{Im} > 0
+\]
+\[
+\arg(z) = \phi = \arctan\left(\frac{1}{\sqrt{3}}\right) = \frac{\pi}{6}
+\]
+\[
+ z = 2 \left(\cos \frac{\pi}{6} + i \sin \frac{\pi}{6}\right)
+\]
+\[
+z = |z| \cdot e^{i\phi} = 2 \cdot e^{i\frac{\pi}{6}}
+\]
+
+
+
+
+\subsection*{1.60}
+
+ Доказать неравенство, используя свойства модуля комплексного числа
+
+
+\subsubsection*{Решение}
+\[
+|\frac{1-3z^2\overline{z}}{2+i}| < 12 \quad (\text{если } |z| \leq 2)
+\]
+\[
+|1-3z^2\overline{z}| < 12\sqrt{5} \quad (\text{домножили на } |{2+i}|= \sqrt{5})
+\]
+\[
+|1-3z^2\overline{z}| \leq |1| + |3z^2\overline{z}|=1+3|z|^3 \leq 1+3*8=25 < 12\sqrt{5}
+\]
+
+\[
+25 < 12\sqrt{5}
+\]
+\[
+6.25 < 14.5
+\]
+\[
+625 < 144*5
+\]
+\[
+625 < 720
+\]
+
+
+
+
+\subsection*{1.70}
+Вычислить $(\frac{1-i}{\sqrt{3}-i})^{20}$ применяя тригонометрическую форму комплексного числа 
+
+
+\subsubsection*{Решение}
+\[
+z = \frac{1-i}{\sqrt{3}-i}
+\]
+\[
+|1-i| = \sqrt{1^2 + (-1)^2} = \sqrt{2}, \quad \arg(1-i) = -\frac{\pi}{4}
+\]
+\[
+|\sqrt{3} - i| = \sqrt{(\sqrt{3})^2 + (-1)^2} = 2, \quad \arg(\sqrt{3} - i) = -\frac{\pi}{6}
+\]
+\[
+\left| \frac{1-i}{\sqrt{3}-i} \right| = \frac{\sqrt{2}}{2}
+\]
+\[
+\arg\left( \frac{1-i}{\sqrt{3}-i} \right) = -\frac{\pi}{4} - (-\frac{\pi}{6}) = -\frac{\pi}{12}
+\]
+\[
+z = \frac{\sqrt{2}}{2} \left( \cos\left(-\frac{\pi}{12}\right) + i \sin\left(-\frac{\pi}{12}\right) \right)
+\]
+\[
+z^{20} = \left(\frac{\sqrt{2}}{2}\right)^{20} \left( \cos\left(20 \cdot -\frac{\pi}{12}\right) + i \sin\left(20 \cdot -\frac{\pi}{12}\right) \right)
+\]
+\[
+= \frac{1}{2^{10}} \left( \cos\left(-\frac{5\pi}{3}\right) + i \sin\left(-\frac{5\pi}{3}\right) \right)
+\]
+\[
+= \frac{1}{1024} \left( \cos\left(\frac{\pi}{3}\right) + i \sin\left(\frac{\pi}{3}\right) \right)
+\]
+\[
+= \frac{1}{1024} \left( \frac{1}{2} + i \frac{\sqrt{3}}{2} \right)=\frac{1+i\sqrt{3}}{2048}
+\]
+
+
+
+\subsection*{1.80}
+Вычислить $\frac{-2\sqrt{3} - 2i}{1 - i}^{\frac{1}{7}}$ применяя тригонометрическую форму комплексного числа 
+
+
+\subsubsection*{Решение}
+\[
+z = \frac{-2\sqrt{3} - 2i}{1 - i}
+\]
+\[
+|1 - i| = \sqrt{1^2 + (-1)^2} = \sqrt{2}, \quad \arg(1-i) = -\frac{\pi}{4}
+\]
+\[
+|-2\sqrt{3} - 2i| = \sqrt{(-2\sqrt{3})^2 + (-2)^2} = 4, \quad \arg(-2\sqrt{3} - 2i) = -\frac{2\pi}{3}
+\]
+\[
+\left| \frac{-2\sqrt{3} - 2i}{1 - i} \right| = \frac{4}{\sqrt{2}} = 2\sqrt{2}
+\]
+\[
+\arg\left( \frac{-2\sqrt{3} - 2i}{1 - i} \right) = -\frac{2\pi}{3} - (-\frac{\pi}{4}) = -\frac{5\pi}{12}
+\]
+\[
+z = 2\sqrt{2} \left( \cos\left(-\frac{5\pi}{12}\right) + i \sin\left(-\frac{5\pi}{12}\right) \right)
+\]
+\[
+z^{1/7} = \left(2\sqrt{2}\right)^{1/7} \left( \cos\left(\frac{-\frac{5\pi}{12} + 2k\pi}{7}\right) + i \sin\left(\frac{-\frac{5\pi}{12} + 2k\pi}{7}\right) \right), \quad k = 0, 1, \dots, 6
+\]
+
+
+
+
+
+
+%глава 2
+\section{Изображение комплексных чисел}
+\subsection*{2.10}
+Изобразить на комлексной плоскости множество точек $z \in \mathbb{C}$, удовлетворяюзих системе соотножений $4 \leq |z-1|+|z+1| \leq 8$
+\subsubsection*{Решение}
+\begin{itemize}
+\item Внутренний эллипс (минимальное расстояние 4) представляет собой множество точек, каждая из которых имеет суммарное расстояние до двух фокусов равное 4. Это минимальный эллипс.
+\item Внешний эллипс (максимальное расстояние 8) аналогично описывает множество точек, суммарное расстояние до фокусов которых равно 8.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+
+
+\begin{scope}
+\clip (0,0) ellipse (4 and 3.87298334621); 
+\fill[gray!50] (0,0) ellipse (4 and 3.87298334621); 
+\fill[white] (0,0) ellipse (2 and 1.73205080757); 
+\end{scope}
+
+\draw[gray!30, thin, step=0.5] (-5,-4) grid (5,4);
+\draw[thick,->] (-5,0) -- (5,0) node[right] {$\text{Re}$};
+\draw[thick,->] (0,-4) -- (0,4) node[above] {$\text{Im}$};
+
+\draw[<->,red,thick] (-1,0) -- (1,0);
+\draw[<->,blue,thick] (0,-1) --  (0,1);
+\draw (0,0) ellipse (2 and 1.73205080757);
+\draw (0,0) ellipse (4 and 3.87298334621);
+
+\node at (-1,-0.3) {$-1$};
+\node at (1,-0.3) {$1$};
+\node at (0.3,-1) {$-i$};
+\node at (0.3,1) {$i$};
+
+\end{tikzpicture}
+\end{center}
+
+
+\subsection*{2.20}
+Изобразить линию, заданную уравнением $2z\overline{z}+(2+i)z+(2-i)\overline{z}=2$
+\subsubsection*{Решение}
+Уравнение в комплексной форме:
+\[
+2z\overline{z} + (2+i)z + (2-i)\overline{z} = 2
+\]
+Преобразуется в:
+\[
+2(x^2 + y^2) + (2x + y) +(2y+x)i +(2x - y) - (2y+x)i = 2
+\]
+\[
+x^2 + y^2 + 2x - y = 1
+\]
+Получаем уравнение окружности:
+\[
+(x+1)^2 + \left(y-\frac{1}{2}\right)^2 = \left(\frac{3}{2}\right)^2
+\]
+Центр окружности: \(-1+\frac{1}{2}i\), радиус: \(\frac{3}{2}\).
+
+\begin{center}
+\begin{tikzpicture}[scale=2]
+    \draw[step=0.5,gray,very thin] (-3,-1) grid (1,2);
+    \draw[thick,->] (-3,0) -- (1,0) node[right] {$\text{Re}$};
+    \draw[thick,->] (0,-1) -- (0,2) node[above] {$\text{Im}$};
+
+    % Окружность
+    \draw[thick,blue] (-1,0.5) circle (1.5);
+    \filldraw[black] (-1,0.5) circle (1pt) node[anchor=north east] {$-1+\frac{i}{2}$};
+
+    % Радиус
+    \draw[red, thick] (-1,0.5) -- node[above left] {$\frac{3}{2}$} (-2.5,0.5);
+\end{tikzpicture}
+\end{center}
+
+%глава 3
+\section{Функции $e^z,\sin{z},\cos{z},\cosh{z},\sinh{z},\sqrt[n]{z},Ln(z),\ln{z}$}
+\subsection*{3.10}
+Вычислить $\text{Im} \exp{2-5i}$
+\subsubsection*{Решение}
+\[
+e^{2-5i} = e^{2}(\cos(-5) + i\sin(-5))
+\]
+\[
+\text{Im } e^{2-5i} = e^2 \sin(-5)
+\]
+
+\subsection*{3.20}
+Найти действительную,мнимую части и модуль функции $f(z)=\sin(z)$
+\subsubsection*{Решение}
+\[
+\sin(z) =\sin(x+iy)= \sin(x)\cosh(y) + i\cos(x)\sinh(y)
+\]
+\[
+\text{Re}(\sin(z)) = \sin(x) \cosh(y)
+\]
+\[
+\text{Im}(\sin(z)) = \cos(x) \sinh(y)
+\]
+\[
+|\sin(z)| = \sqrt{(\sin(x) \cosh(y))^2 + (\cos(x) \sinh(y))^2}=
+\]
+\[
+= \sqrt{(\sin(x) \cosh(y))^2 + (1-\sin^2(x))( \sinh(y))^2}=\sqrt{\sinh^2{x}+\sin^2{x}}
+\]
+
+\subsection*{3.30}
+Вычислить значения логарифмов $Ln 10,\ln(10)$
+\subsubsection*{Решение}
+\[
+Ln(10) = \ln{10}+i\arg(10)+i*2k\pi, k \in \mathbf{Z}
+\]
+\[
+\arg(10)=0
+\]
+\[
+Ln(10) = \ln{10}+i*2k\pi, k \in \mathbf{Z}
+\]
+\[
+\ln(10+0i)=\ln{10}
+\]
+
+\subsection*{3.40}
+Найти все значения выражения $(-4)^{-4}$
+\subsubsection*{Решение}
+\[
+\arg{-4}=\pi
+\]
+\[
+\sqrt[4]{-4}=\sqrt[4]{4}*(\cos(\frac{\pi+2k\pi}{4})+i\sin(\frac{\pi+2k\pi}{4})),k=0,1,2,3
+\]
+\[
+z_0=\sqrt{2}*(\cos{\frac{\pi}{4}}+i\sin{\frac{\pi}{4}})=\sqrt{2}*(\frac{\sqrt{2}}{2}+i\frac{\sqrt{2}}{2})=i+1
+\]
+\[
+z_0=i+1,z_1=i-1,z_2=-i-1,z_3=-i+1
+\]
+
+
+%глава 4
+\section{Дробно-линейная функция}
+\subsection*{4.10}
+Найти дробно-линейнойное отображение $w=f(z)$, которое переводит точки $z_1=-1,z_2=0,z_3=1$ в точки $w_1=1,w_2=i,w_3=-1$ соответственно
+\subsubsection*{Решение}
+\[
+\frac{a(-1) + b}{c(-1) + d} = 1, \quad \frac{b}{d} = i, \quad \frac{a + b}{c + d} = -1
+\]
+\[
+\frac{-a + b}{-c + d} = 1 \Rightarrow -a + b = -c + d
+\]
+\[
+\frac{b}{d} = i \Rightarrow b = id
+\]
+\[
+\text{Подставим } b = id 
+\]
+\[
+\frac{a + id}{c + d} = -1 \Rightarrow a + id = -c - d
+\]
+\[
+-a + id = -c + d \Rightarrow a + c = i(d - b)
+\]
+\[
+\text{Из уравнения } a + id = -c - d
+\]
+\[
+a = -c - d - id
+\]
+\[
+\text{Пусть } c = 1, d = 1
+\]
+\[
+b = i, \quad a = -2 - i
+\]
+\[
+f(z) = \frac{(-2-i)z + i}{z + 1}
+\]
+
+\subsection*{4.20}
+Найти дробно-линейнойную функцию $w=f(z)$, отображающую $G$ - круг $|z-1| \leq 1$ на
+$H$ - полуплоскость $\text{Im}(z) \leq 2$
+\subsubsection*{Решение}
+\[
+f(z) = \frac{az + b}{cz + d}
+\]
+\[
+z_1=0,z_2=2,z_3=1+i \text{ в точки } w_1=2i-2,w_2=2i+2,w_3=2i
+\]
+\[
+\frac{b}{d} = 2i - 2, \quad \frac{a(1+i) + b}{c(1+i) + d} = 2i, \quad \frac{2a + b}{2c + d} = 2 + 2i
+\]
+
+\[
+b = (2i - 2)d, \quad a(1+i) + b = 2i(c(1+i) + d), \quad 2a + b = 2(2c + d) + 2i(2c + d)
+\]
+\[
+\text{Пусть } d = 1 \text{, тогда } b = 2i - 2
+\]
+\[
+a(1+i) + (2i - 2) = 2i(c(1+i) + 1), \quad 2a + (2i - 2) = 2 + 2i + 4c + 2i
+\]
+
+\[
+a(1+i) - 2 = 2ic - 2c + 2i, \quad 2a = 4 + 4c
+\]
+
+\[
+ c = -1, a = 2i
+\]
+
+\[
+f(z) = \frac{(2i)z + (2i - 2)}{-z + 1}
+\]
+
+
+%глава 5
+\section{Дифференцирование функций комплексного переменного}
+\subsection*{5.10}
+Проверить выполнение условий Коши-Римана для функции $f(z)=ze^z$
+\subsubsection*{Решение}
+
+\[
+f(z) = z e^z = (x+iy) e^{x+iy}
+\]
+
+Действительная и мнимая части:
+\[
+u(x, y) = x e^x \cos y - y e^x \sin y, \quad v(x, y) = x e^x \sin y + y e^x \cos y
+\]
+
+Частные производные:
+\[
+\frac{\partial u}{\partial x} = e^x \cos y + x e^x \cos y - y e^x \sin y
+\]
+\[
+\frac{\partial u}{\partial y} = -x e^x \sin y - y e^x \cos y - e^x \sin y
+\]
+\[
+\frac{\partial v}{\partial x} = e^x \sin y + x e^x \sin y + y e^x \cos y
+\]
+\[
+\frac{\partial v}{\partial y} = x e^x \cos y - y e^x \sin y + e^x \cos y
+\]
+\[
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\]
+
+Условия Коши-Римана выполнены.
+
+\subsection*{5.20}
+Определить точки дифференцируемости и область аналитичности функции $f(z)=f(x+iy)=2xy+iy^2$. Найти производную в точках существования.
+\subsubsection*{Решение}
+\[
+  u(x, y) = 2xy
+ \]
+ \[
+v(x, y) = y^2
+ \]
+
+Условия Коши-Римана:
+\[
+\frac{\partial u}{\partial x} = 2y, \quad \frac{\partial u}{\partial y} = 2x
+\]
+\[
+\frac{\partial v}{\partial x} = 0, \quad \frac{\partial v}{\partial y} = 2y
+\]
+\[
+\]
+\[
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{(всегда) и} \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} \quad (\text{выполняется только если } x = 0)
+\]
+
+Функция дифференцируема и аналитична вдоль мнимой оси:
+\[
+f'(iy) = \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}=2y+i*0=2y
+\]
+\subsection*{5.30}
+Найти аналитическую функцию $f(z)=u(x,y)+iv(x,y)$ по ее указанным свойствам 
+$v(x,y)=4\sinh{x}\sin{y}+2xy, f(0)=3$
+\subsubsection*{Решение}
+Для функции \( v(x, y) = 4\sinh x \sin y + 2xy \), используя условия Коши-Римана:
+\[
+\frac{\partial v}{\partial x} = 4\cosh x \sin y + 2y, \quad \frac{\partial v}{\partial y} = 4\sinh x \cos y + 2x
+\]
+\[
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\]
+При интегрировании по \( x \) для \( \frac{\partial u}{\partial x} \):
+\[
+u(x, y) = \int (4 \sinh x \cos y + 2x) \, dx = 4 \cos y \cosh x + x^2 + \lambda(y)
+\]
+
+Дифференцируем по \( y \):
+\[
+(4 \cos y \cosh x + x^2 + \lambda(y))'_{y}=-4*\sin{y}\cosh{x}+\lambda(y)'_{y}
+\]
+Вспоминаем условия Коши-Римана:
+\[
+-4*\sin{y}\cosh{x}+\lambda(y)'_{y}=-\frac{\partial v}{\partial x}=-4*\sin{y}\cosh{x}-2y
+\]
+\[
+\lambda(y)'_{y}=-2y
+\]
+\[
+\lambda(y)=-y^2+C
+\]
+Получаем, что:
+\[
+u(x, y) = 4\cosh x \sin y + x^2 - y^2 + C
+\]
+Из начального условия \( f(0) = 3 \):
+\[
+u(0, 0) = 3 -v(0,0)
+\]
+\[
+v(0, 0) = 4\sinh 0 \sin 0 + 2*0*0=0 
+\]
+\[
+3=u(0, 0) = 4\cosh 0 \sin 0 + 0^2 - 0^2 + C
+\]
+\[
+3=C
+\]
+Таким образом, аналитическая функция:
+\[
+f(z) = (4\cosh x \sin y + x^2 - y^2 + 3) + i(4\sinh x \sin y + 2xy)
+\]
+\end{document}

@@ -26,7 +26,7 @@
 \maketitle
 \newpage
 
-\renewcommand{\contentsname}{Оглавление}
+\renewcommand{\contentsname}{Содержание}
 \tableofcontents
 \newpage
 
@@ -630,5 +630,555 @@ v(0, 0) = 4\sinh 0 \sin 0 + 2*0*0=0
 Таким образом, аналитическая функция:
 \[
 f(z) = (4\cosh x \sin y + x^2 - y^2 + 3) + i(4\sinh x \sin y + 2xy)
+\]
+%глава 5
+\section{Интегрирование функций комплексного переменного}
+\subsection*{6.10}
+Вычислить интеграл
+\[
+\int_\Gamma f(z) \, dz,
+\]
+$\Gamma$ --- отрезок с концами в точках \( z_1 \) и \( z_2 \), проходимый от \( z_1 \) к \( z_2 \).
+\[
+f(z)=z\overline{z}+4z+1, z1=-1-i,z2=1+i
+\]
+\subsubsection*{Решение}
+Параметризуем отрезок \(\Gamma\) как
+\[
+z(t) = z_1 + t(z_2 - z_1) = (-1 - i) + t(2 + 2i), \quad t \in [0, 1]
+\]
+Тогда
+\[
+z(t) = -1 - i + 2t + 2ti = (2t - 1) + i(2t - 1)
+\]
+и
+\[
+\frac{dz}{dt} = 2 + 2i
+\]
+
+Теперь вычислим \(\overline{z(t)}\):
+\[
+\overline{z(t)} = \overline{(2t - 1) + i(2t - 1)} = (2t - 1) - i(2t - 1)
+\]
+
+Тогда
+\[
+f(z(t)) = z(t)\overline{z(t)} + 4z(t) + 1
+\]
+
+Вычислим \(z(t)\overline{z(t)}\):
+\[
+z(t)\overline{z(t)} = [(2t - 1) + i(2t - 1)][(2t - 1) - i(2t - 1)] = (2t - 1)^2 + (2t - 1)^2 = 2(2t - 1)^2
+\]
+
+Тогда,
+\[
+f(z(t)) = 2(2t - 1)^2 + 4[(2t - 1) + i(2t - 1)] + 1
+\]
+\[
+f(z(t)) = 2(2t - 1)^2 + 4(2t - 1) + 4i(2t - 1) + 1
+\]
+
+Интеграл преобразуется в
+\[
+\int_\Gamma f(z) \, dz = \int_0^1 f(z(t)) \frac{dz}{dt} \, dt
+\]
+\[
+= \int_0^1 [2(2t - 1)^2 + 4(2t - 1) + 4i(2t - 1) + 1](2 + 2i) \, dt
+\]
+\[
+= \int_0^1 [2(2t - 1)^2(2 + 2i) + 4(2t - 1)(2 + 2i) + 4i(2t - 1)(2 + 2i) + (2 + 2i)] \, dt
+\]
+\[
+= \int_0^1 \left[4(2t - 1)^2 + 4i(2t - 1)^2 + 8(2t - 1) + 8i(2t - 1) + 8i(2t - 1) - 8(2t - 1) + 2 + 2i \right] \, dt
+\]
+\[
+= \int_0^1 \left[ 4(2t - 1)^2 + 4i(2t - 1)^2 + 8i(2t - 1) + 2 + 2i \right] \, dt
+\]
+Вычислим каждый член отдельно:
+\[
+\int_0^1 4(2t - 1)^2 \, dt + \int_0^1 4i(2t - 1)^2 \, dt + \int_0^1 8i(2t - 1) \, dt + \int_0^1 2 \, dt + \int_0^1 2i \, dt
+\]
+Вычислим каждый интеграл:
+\[
+\int_0^1 4(2t - 1)^2 \, dt = 4 \int_0^1 (4t^2 - 4t + 1) \, dt = 4 \left( \left[ \frac{4t^3}{3} - 2t^2 + t \right]_0^1 \right) = 4 \left( \frac{4}{3} - 2 + 1 \right) = 4 \left( \frac{1}{3} \right) = \frac{4}{3}
+\]
+
+\[
+\int_0^1 4i(2t - 1)^2 \, dt = 4i \int_0^1 (4t^2 - 4t + 1) \, dt = 4i \left( \frac{1}{3} \right) = \frac{4i}{3}
+\]
+
+\[
+\int_0^1 8i(2t - 1) \, dt = 8i \left[ \frac{(2t - 1)^2}{2} \right]_0^1 = 8i \left( \frac{1}{2} - \frac{1}{2} \right) = 0
+\]
+
+\[
+\int_0^1 2 \, dt = 2 \left[ t \right]_0^1 = 2
+\]
+
+\[
+\int_0^1 2i \, dt = 2i \left[ t \right]_0^1 = 2i
+\]
+
+Сложим всё вместе:
+\[
+\int_\Gamma f(z) \, dz = \frac{4}{3} + \frac{4i}{3} + 2 + 2i = \left( \frac{4}{3} + 2 \right) + \left( \frac{4i}{3} + 2i \right) = \frac{10}{3} + \frac{10i}{3} = \frac{10}{3}(1 + i)
+\]
+
+Итак, ответ:
+\[
+\int_\Gamma f(z) \, dz = \frac{10}{3}(1 + i)
+\]
+\subsection*{6.20}
+Вычислить интеграл
+\[
+\int_{0}^{i} \cosh z \, dz
+\]
+\subsubsection*{Решение}
+
+\[
+\frac{d\sinh z}{dz}  = \cosh z
+\]
+
+Таким образом,
+\[
+\int \cosh z \, dz = \sinh z + C
+\]
+
+Теперь вычислим определенный интеграл:
+\[
+\int_{0}^{i} \cosh z \, dz = \left. \sinh z \right|_{0}^{i} = \sinh(i) - \sinh(0)
+\]
+
+\(\sinh(0) = 0\),
+\[
+\int_{0}^{i} \cosh z \, dz = \sinh(i)
+\]
+
+\[
+\sinh z = \frac{e^z - e^{-z}}{2}
+\]
+Для \(z = i\):
+\[
+\sinh(i) = \frac{e^i - e^{-i}}{2}
+\]
+
+\[
+e^i = \cos(1) + i\sin(1)
+\]
+\[
+e^{-i} = \cos(1) - i\sin(1)
+\]
+
+\[
+\sinh(i) = \frac{(\cos(1) + i\sin(1)) - (\cos(1) - i\sin(1))}{2} = \frac{2i\sin(1)}{2} = i\sin(1)
+\]
+\[
+\int_{0}^{i} \cosh z \, dz = i\sin(1)
+\]
+\subsection*{6.30}
+Вычислить интеграл с помощью интегральной формулы Коши
+
+\(\int_{\Gamma} \frac{\cos z}{(z + 1)(z + i)} \, dz,\)
+
+a) \(\Gamma\) --- окружность \(|z - 1 - i| = 8\); \quad b) \(\Gamma\) --- окружность \(|z - 1 - i| = 4\).
+
+\subsubsection*{Решение}
+\[
+\int_{\Gamma} \frac{\cos z}{(z + 1)(z + i)} \, dz
+\]
+и вычислим его с помощью интегральной формулы Коши.
+
+a) \(\Gamma\) --- окружность \(|z - 1 - i| = 8\)
+
+Простые нули \( \frac{\cos z}{(z + 1)(z + i)} \) находятся в точках \( z = -1 \) и \( z = -i \). Оба простых нуля находятся внутри окружности \(|z - 1 - i| = 8\).
+
+ Интеграл вокруг \( z = -1 \)
+
+Используем интегральную формулу Коши для функции \( f(z) = \frac{\cos z}{z + i} \) с \( z_0 = -1 \):
+
+\[
+\int_{\Gamma} \frac{\cos z}{(z + 1)(z + i)} \, dz = 2\pi i \cdot \frac{\cos(-1)}{-1 + i} = 2\pi i \cdot \frac{\cos(1)}{i - 1}
+\]
+
+Интеграл вокруг \( z = -i \)
+
+Используем интегральную формулу Коши для функции \( f(z) = \frac{\cos z}{z + 1} \) с \( z_0 = -i \):
+
+\[
+\int_{\Gamma} \frac{\cos z}{(z + 1)(z + i)} \, dz = 2\pi i \cdot \frac{\cos(-i)}{-i + 1} = 2\pi i \cdot \frac{\cos(i)}{1 - i}
+\]
+Суммируем результаты
+\[
+\int_{\Gamma} \frac{\cos z}{(z + 1)(z + i)} \, dz = 2\pi i \left( \frac{\cos(1)}{i - 1} + \frac{\cos(i)}{1 - i} \right)
+\]
+
+b) \(\Gamma\) --- окружность \(|z - 1 - i| = 4\)
+
+Оба простых нуля \( z = -1 \) и \( z = -i \) также находятся внутри этой окружности. Вычисления аналогичны случаю a:
+\[
+\int_{\Gamma} \frac{\cos z}{(z + 1)(z + i)} \, dz = 2\pi i \left( \frac{\cos(1)}{i - 1} + \frac{\cos(i)}{1 - i} \right)
+\]
+
+Значит как и в пункте а ответ:
+\[
+\int_{\Gamma} \frac{\cos z}{(z + 1)(z + i)} \, dz = 2\pi i \left( \frac{\cos(1)}{i - 1} + \frac{\cos(i)}{1 - i} \right)
+\]
+\section{Области сходимости рядов}
+\subsection*{7.10}
+Определить облась сходимости ряда
+\[
+\sum_{n=1}^{\infty}\frac{2^n+5}{(z-1+i)^n}
+\]
+
+\subsubsection*{Решение}
+\[
+\sum_{n=1}^{\infty} a_n (z - z_0)^n,
+\]
+где \( a_n = 2^n + 5 \) и \( z_0 = 1 - i \).
+
+
+\[
+R = \frac{1}{\limsup_{n \to \infty} \sqrt[n]{|a_n|}}.
+\]
+
+Найдём \(\limsup_{n \to \infty} \sqrt[n]{|a_n|}\):
+\[
+a_n = 2^n + 5.
+\]
+
+\[
+\sqrt[n]{|a_n|} \approx \sqrt[n]{2^n} = 2.
+\]
+
+\[
+\limsup_{n \to \infty} \sqrt[n]{|a_n|} = 2.
+\]
+
+\[
+R = \frac{1}{2}.
+\]
+
+Таким образом, область сходимости ряда — круг с центром  \( 1 - i \) и радиусом \(\frac{1}{2}\):
+\[
+|z - (1 - i)| < \frac{1}{2}.
+\]
+\section{Разложение функций в ряды Тейлора и Лорана}
+\subsection*{8.10}
+Разложить функцию $f(z)=\frac{3z}{z^2-1}$ в ряд Тейлора в окрестности токи $z_0=0$. Найти радиус сходимости ряда.
+\subsubsection*{Решение}
+
+\[
+f(z) = \frac{3z}{(z - 1)(z + 1)} = \frac{A}{z - 1} + \frac{B}{z + 1}
+\]
+
+\[
+3z = A(z + 1) + B(z - 1)
+\]
+
+\[
+3z = Az + A + Bz - B \implies 3z = (A + B)z + (A - B)
+\]
+
+\[
+A + B = 3 \quad \text{и} \quad A - B = 0
+\]
+
+\[
+A = B \quad \text{и} \quad 2A = 3 \implies A = \frac{3}{2}, \quad B = \frac{3}{2}
+\]
+
+\[
+\frac{3z}{(z - 1)(z + 1)} = \frac{\frac{3}{2}}{z - 1} + \frac{\frac{3}{2}}{z + 1}
+\]
+
+Разложим каждую из этих дробей в ряд Тейлора в окрестности точки \( z = 0 \):
+\[
+\frac{3/2}{z - 1} = -\frac{3/2}{1 - z} = -\frac{3}{2} \sum_{n=0}^{\infty} z^n \quad \text{для} \ |z| < 1
+\]
+\[
+\frac{3/2}{z + 1} = \frac{3/2}{1 + z} = \frac{3/2} \sum_{n=0}^{\infty} (-1)^n z^n \quad \text{для} \ |z| < 1
+\]
+
+\[
+f(z) = -\frac{3}{2} \sum_{n=0}^{\infty} z^n + \frac{3}{2} \sum_{n=0}^{\infty} (-1)^n z^n
+\]
+
+\[
+f(z) = \frac{3}{2} \left( \sum_{n=0}^{\infty} (-1)^n z^n - \sum_{n=0}^{\infty} z^n \right)
+\]
+
+Этот ряд Тейлора сходится в области \( |z| < 1 \). Таким образом, радиус сходимости \( R = 1 \).
+
+\[
+f(z) = \frac{3}{2} \left( \sum_{n=0}^{\infty} (-1)^n z^n - \sum_{n=0}^{\infty} z^n \right), \quad R = 1
+\]
+\subsection*{8.20}
+Разложить функцию $f(z)=\frac{1-e^{-z}}{z^6}$ в ряд Лорана с центром в точке $z_0=0$. 
+\subsubsection*{Решение}
+\[
+e^{-z} = \sum_{n=0}^{\infty} \frac{(-z)^n}{n!}
+\]
+
+\[
+1 - e^{-z} = 1 - \sum_{n=0}^{\infty} \frac{(-z)^n}{n!} = 1 - \left( 1 - \frac{z}{1!} + \frac{z^2}{2!} - \frac{z^3}{3!} + \cdots \right)
+\]
+\[
+1 - e^{-z} = z - \frac{z^2}{2!} + \frac{z^3}{3!} - \frac{z^4}{4!} + \frac{z^5}{5!} - \cdots
+\]
+
+\[
+f(z) = \frac{1 - e^{-z}}{z^6} = \frac{z - \frac{z^2}{2!} + \frac{z^3}{3!} - \frac{z^4}{4!} + \frac{z^5}{5!} - \cdots}{z^6}
+\]
+
+\[
+f(z) = \frac{z}{z^6} - \frac{\frac{z^2}{2!}}{z^6} + \frac{\frac{z^3}{3!}}{z^6} - \frac{\frac{z^4}{4!}}{z^6} + \frac{\frac{z^5}{5!}}{z^6} - \cdots
+\]
+\[
+f(z) = z^{-5} - \frac{z^{-4}}{2!} + \frac{z^{-3}}{3!} - \frac{z^{-2}}{4!} + \frac{z^{-1}}{5!} - \cdots
+\]
+
+\[
+f(z) = \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n!} z^{-(6-n)}
+\]
+\subsection*{8.30}
+Разложить функцию $f(z)=\frac{2z}{z^2-4z+3}$ в ряд Лорана в кольце $3<|z|<\infty$
+\subsubsection*{Решение}
+\[
+z^2 - 4z + 3 = (z - 1)(z - 3)
+\]
+
+\[
+f(z) = \frac{2z}{(z - 1)(z - 3)}
+\]
+
+\[
+\frac{2z}{(z - 1)(z - 3)} = \frac{A}{z - 1} + \frac{B}{z - 3}
+\]
+
+\[
+2z = A(z - 3) + B(z - 1)
+\]
+\[
+2z = Az - 3A + Bz - B
+\]
+\[
+2z = (A + B)z - 3A - B
+\]
+
+\[
+A + B = 2
+\]
+\[
+-3A - B = 0
+\]
+
+\[
+B = 2 - A
+\]
+\[
+-3A - (2 - A) = 0 \implies -3A - 2 + A = 0 \implies -2A - 2 = 0 \implies A = -1, \quad B = 3
+\]
+
+\[
+\frac{2z}{(z - 1)(z - 3)} = \frac{-1}{z - 1} + \frac{3}{z - 3}
+\]
+
+
+Для \(\frac{1}{z - 1}\), так как \( |z| > 3 \):
+\[
+\frac{1}{z - 1} = \frac{1}{z\left(1 - \frac{1}{z}\right)} = \frac{1}{z} \cdot \frac{1}{1 - \frac{1}{z}} = \frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{1}{z}\right)^n = \sum_{n=0}^{\infty} \frac{1}{z^{n+1}}
+\]
+
+Для \(\frac{1}{z - 3}\), так как \( |z| > 3 \):
+\[
+\frac{1}{z - 3} = \frac{1}{z\left(1 - \frac{3}{z}\right)} = \frac{1}{z} \cdot \frac{1}{1 - \frac{3}{z}} = \frac{1}{z} \sum_{n=0}^{\infty} \left(\frac{3}{z}\right)^n = \sum_{n=0}^{\infty} \frac{3^n}{z^{n+1}}
+\]
+
+\[
+f(z) = -\sum_{n=0}^{\infty} \frac{1}{z^{n+1}} + 3 \sum_{n=0}^{\infty} \frac{3^n}{z^{n+1}}
+\]
+
+\[
+f(z) = \sum_{n=0}^{\infty} \left(3^{n+1} - 1\right) \frac{1}{z^{n+1}}
+\]
+
+\[
+f(z) = \sum_{n=0}^{\infty} \left(3^{n+1} - 1\right) \frac{1}{z^{n+1}}
+\]
+\section{Изолированные особые точки. Вычеты}
+\subsection*{9.10}
+Найти все конечные изолированные особые точки функции $f(z)=z\cos{\frac{1}{z^2}}$ и определить характер(нордический) каждой из них
+\subsubsection*{Решение}
+Характер особой точки в \( z = 0 \)
+\[
+\cos w = \sum_{n=0}^{\infty} \frac{(-1)^n w^{2n}}{(2n)!}
+\]
+\[
+\cos \frac{1}{z^2} = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)! z^{4n}}
+\]
+
+\[
+f(z) = z \cos \frac{1}{z^2} = z \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)! z^{4n}} = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!} z^{1 - 4n}
+\]
+\[
+f(z) = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n)!} z^{1 - 4n}
+\]
+Из этого разложения видно, что \( z = 0 \) является существенной особой точкой, так как ряд содержит бесконечное число членов с отрицательными степенями \( z \).
+
+\subsection*{9.20}
+Указать характер изолированной особой точки $z_0=\infty$ функции $f(z)=z\cos{\frac{1}{2z^3+z}}$
+\subsubsection*{Решение}
+
+\[
+\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots
+\]
+Посмотрев что в косинусе стоит $\frac{1}{2z^3+z}}$ становится очевидно, что будет бесконечно много членов отрицательной степени, значит $z_0=\infty$ существенная особая точка
+
+\subsection*{9.30}
+Найти вычеты функции $f(z)=\frac{\cosh{z}}{(z-i)(z-1)^2}$ в конечных изолированных особых точках
+\subsubsection*{Решение}
+\[
+\frac {e^z+e^{-z}}{2}=0 \iff e^{2z}=-1
+\]
+\[
+2z=i\pi(2k+1), k \in \mathbb{Z}
+\]
+\[
+z=0+\left(\frac{\pi}2+k\pi\right) i, k \in \mathbb{Z}
+\]
+В точке \( z = i \) функция имеет простой полюс, а В точке \( z = 1 \)  полюс второго порядка.
+
+Вычет в точке \( z = i \)
+\[
+\operatorname{Res}(f, i) = \lim_{z \to i} (z - i) f(z)
+\]
+
+\[
+\operatorname{Res}(f, i) = \lim_{z \to i} (z - i) \frac{\cosh z}{(z - i)(z - 1)^2} = \lim_{z \to i} \frac{\cosh z}{(z - 1)^2} = \frac{\cosh i}{(i - 1)^2}
+\]
+
+Вычет в точке \( z = 1 \)
+
+\[
+\operatorname{Res}(f, 1) = \lim_{z \to 1} \frac{d}{dz} \left[ (z - 1)^2 f(z) \right]
+\]
+
+\[
+(z - 1)^2 f(z) = \frac{\cosh z}{z - i}
+\]
+
+\[
+\frac{d}{dz} \left[ \frac{\cosh z}{z - i} \right] = \frac{(z - i) \sinh z - \cosh z}{(z - i)^2}
+\]
+
+\[
+\operatorname{Res}(f, 1) = \frac{(1 - i) \sinh 1 - \cosh 1}{(1 - i)^2}
+\]
+\subsection*{9.40}
+Найти вычет функции $f(z)=z^2\cos{\frac{1}{z}}$ в точке $z_0=\infty$
+\subsubsection*{Решение}
+
+\[
+z^2\cos{\frac{1}{z}} = z^2(1 - \frac{z^{-2}}{2!} + \frac{x^{-4}}{4!} - \cdots)
+\]
+Очевидно, что в разложении нашей функции будет присутствовать бесконечно много отрицательных степеней, значит вычет равен нулю
+\[
+ \operatorname{Res}(f, \infty) = 0 
+\]
+\section{Вычисление с помощью вычетов комплексныъ интегралов}
+\subsection*{10.10}
+Вычислить интеграл
+\[
+\int_{|z - 1 + i| = 2}^{} \frac{1}{(z - 1 + i)(z - 2 + i)} \, dz
+\]
+с помощью теоремы о вычетах.
+\subsubsection*{Решение}
+\[ 
+(z = 1 - i): |1 - i - (1 - i)| = 0 < 2
+\]
+\[
+ (z = 2 - i): |2 - i - (1 - i)| = |1| = 1 < 2
+\]
+
+Оба полюса находятся внутри контура.
+
+Для полюса в \(z = 1 - i\):
+\[
+\operatorname{Res}\left( \frac{1}{(z - 1 + i)(z - 2 + i)}, z = 1 - i \right) = \frac{1}{(1 - i - 2 + i)} = \frac{1}{-1} = -1
+\]
+
+Для полюса в \(z = 2 - i\):
+\[
+\operatorname{Res}\left( \frac{1}{(z - 1 + i)(z - 2 + i)}, z = 2 - i \right) = \frac{1}{(2 - i - 1 + i)} = \frac{1}{1} = 1
+\]
+
+По теореме о вычетах, интеграл по замкнутому контуру равен \(2\pi i\) умноженному на сумму вычетов функции внутри контура:
+\[
+\int_{|z - 1 + i| = 2} \frac{1}{(z - 1 + i)(z - 2 + i)} \, dz = 2\pi i \left( -1 + 1 \right) = 2\pi i \cdot 0 = 0
+\]
+\subsection*{10.20}
+Вычислить интеграл
+\[
+\int_{|z - 1 - i| = 10} \frac{e^z}{z^2(z + i)} \, dz
+\]
+с помощью теоремы о вычетах.
+\subsubsection*{Решение}
+Функция \( \frac{e^z}{z^2(z + i)} \) имеет полюсы в точках \( z = 0 \) (полюс второго порядка) и \( z = -i \) (простой полюс), которые находятся внутри контура
+
+Для полюса в \(z = 0\) (полюс второго порядка):
+\[
+\operatorname{Res}\left( \frac{e^z}{z^2(z + i)}, z = 0 \right) = \lim_{z \to 0} \frac{d}{dz} \left[ z^2 \frac{e^z}{z^2(z + i)} \right] = \lim_{z \to 0} \frac{d}{dz} \left[ \frac{e^z}{z + i} \right]
+\]
+\[
+\frac{d}{dz} \left[ \frac{e^z}{z + i} \right] = \frac{(z + i) e^z - e^z}{(z + i)^2} = \frac{z e^z}{(z + i)^2}
+\]
+
+\[
+\operatorname{Res}\left( \frac{e^z}{z^2(z + i)}, z = 0 \right) = \frac{0 \cdot e^0}{(0 + i)^2} = 0
+\]
+
+Для полюса в \(z = -i\) (простой полюс):
+\[
+\operatorname{Res}\left( \frac{e^z}{z^2(z + i)}, z = -i \right) = \frac{e^{-i}}{-1} = -e^{-i}
+\]
+
+По теореме о вычетах, интеграл по замкнутому контуру равен \(2\pi i\) умноженному на сумму вычетов функции внутри контура:
+\[
+\int_{|z - 1 - i| = 10} \frac{e^z}{z^2(z + i)} \, dz = 2\pi i \left( 0 - e^{-i} \right) = -2\pi i e^{-i}
+\]
+\section{Вычисление с помощью вычетов комплексныъ интегралов}
+\subsection*{11.10}
+Вычислить интеграл
+\[
+\int_{-\infty}^{\infty} \frac{1}{x^2 - 8x + 25} \, dx
+\]
+методами теории функций комплексного переменного
+\subsubsection*{Решение}
+Мы можем использовать, тк при $\epsilon=1.1,M=1$ выполняется (11.1)
+\[
+\int_{-\infty}^{\infty} f(x) \, dx = 2\pi i \sum_{k=1}^n \operatorname{Res} \left[ f(z); z_k \right].
+\]
+
+Преобразуем подынтегральное выражение:
+\[
+x^2 - 8x + 25 = (x - 4)^2 + 9 = (x - 4)^2 + 3^2.
+\]
+
+\[
+f(z) = \frac{1}{(z - 4)^2 + 9}.
+\]
+Эта функция имеет полюсы в точках:
+\[
+z = 4 \pm 3i.
+\]
+\[
+\operatorname{Res}\left[ \frac{1}{(z - 4)^2 + 9}, z = 4 + 3i \right] = \lim_{z \to 4 + 3i} (z - (4 + 3i)) \frac{1}{(z - (4 + 3i))(z - (4 - 3i))}=\]
+\[
+= \frac{1}{(4 + 3i) - (4 - 3i)} = \frac{1}{6i} = -\frac{i}{6}.
+\]
+
+\[
+\int_{-\infty}^{\infty} \frac{1}{x^2 - 8x + 25} \, dx = \frac{\pi}{3}.
 \]
 \end{document}
